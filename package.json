@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "license": "MIT",
   "author": "Massimo Cassandro",
-  "private": true,
   "main": "index.js",
   "scripts": {
     "UPD-version": "node ./node_modules/@massimo-cassandro/dev-utilities/src/update-version.mjs",
