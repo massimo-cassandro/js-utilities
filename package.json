@@ -1,12 +1,14 @@
 {
   "name": "@massimo-cassandro/js-utilities",
   "description": "My collection of js utilities",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "author": "Massimo Cassandro",
   "main": "index.js",
   "scripts": {
-    "UPD-version": "node ./node_modules/@massimo-cassandro/dev-utilities/src/update-version.mjs",
+    "UPD-version": "node ./node_modules/@massimo-cassandro/dev-utilities/scripts/update-version/index.mjs",
+    "npm publish": "npm publish",
+    "npm update": "npm update",
     "local test server": "python3 -m http.server"
   },
   "browserslist": [

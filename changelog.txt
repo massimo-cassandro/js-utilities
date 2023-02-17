@@ -1,1 +1,2 @@
 2023-02-17T11:26:50.123Z |      1.0.0 | First version from old package `m-utilities`
+2023-02-17T17:54:22.509Z |      1.1.0 | url_concat: ability to manage string and array parameters
