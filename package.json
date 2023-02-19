@@ -6,7 +6,7 @@
   "author": "Massimo Cassandro",
   "main": "index.js",
   "scripts": {
-    "UPD-version": "node ./node_modules/@massimo-cassandro/dev-utilities/scripts/update-version/index.mjs",
+    "UPD-version": "npx update-version",
     "npm publish": "npm publish",
     "npm update": "npm update",
     "local test server": "python3 -m http.server"
