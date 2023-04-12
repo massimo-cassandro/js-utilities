@@ -135,6 +135,7 @@ export function formatTime(d = '', format_options = {
 }
 
 export function formatDateTime(d = '', format_options) {
+  // NB se time === false, non viene mostrata
   const default_options = {
     date: {
       year: 'numeric',
@@ -172,16 +173,18 @@ export function formatDateTime(d = '', format_options) {
       str += formatDate(d, format_options.date);
     }
 
-    str += format_options.separator;
+    if(format_options.time !== false) {
+      str += format_options.separator;
 
-    if(format_options.time_wrapper) {
-      w = document.createElement('div');
-      w.innerHTML = format_options.time_wrapper;
-      w.lastChild.innerHTML = formatTime(d, format_options.time);
-      str += w.innerHTML;
+      if(format_options.time_wrapper) {
+        w = document.createElement('div');
+        w.innerHTML = format_options.time_wrapper;
+        w.lastChild.innerHTML = formatTime(d, format_options.time);
+        str += w.innerHTML;
 
-    } else {
-      str += formatTime(d, format_options.time);
+      } else {
+        str += formatTime(d, format_options.time);
+      }
     }
 
     return str;
