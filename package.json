@@ -1,7 +1,7 @@
 {
   "name": "@massimo-cassandro/js-utilities",
   "description": "My collection of js utilities",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "license": "MIT",
   "author": "Massimo Cassandro",
   "main": "index.js",
@@ -49,7 +49,7 @@
     "index.js"
   ],
   "devDependencies": {
-    "@massimo-cassandro/dev-utilities": "^1.12.5",
-    "@massimo-cassandro/linters-config": "^1.3.8"
+    "@massimo-cassandro/dev-utilities": "^1.17.1",
+    "@massimo-cassandro/linters-config": "^1.4.0"
   }
 }

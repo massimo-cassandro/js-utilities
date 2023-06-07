@@ -1,5 +1,5 @@
 /*
-  import {print_icon} from '@massimo-cassandro/m-utilities/js-utilities/print-icon';
+  import {print_icon} from '@massimo-cassandro/js-utilities';
 
   // uso base
   print_icon({

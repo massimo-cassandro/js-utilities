@@ -24,3 +24,4 @@ export { truncate_string } from './src/truncate-string.js';
 export { default as unique_id } from './src/unique-id.js';
 export { default as url_concat } from './src/url-concat.js';
 export { webpSupport } from './src/webp-support.js';
+export { dateToMysql } from './src/date-to-mysql.js';
