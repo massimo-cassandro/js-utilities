@@ -1,7 +1,7 @@
 {
   "name": "@massimo-cassandro/js-utilities",
   "description": "My collection of js utilities",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "license": "MIT",
   "author": "Massimo Cassandro",
   "main": "index.js",
@@ -46,6 +46,7 @@
   },
   "files": [
     "src/**/*.{scss,css,js,map}",
+    "scss/**/*.{scss,css,js,map}",
     "index.js"
   ],
   "devDependencies": {
