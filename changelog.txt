@@ -2,3 +2,4 @@
 2023-02-17T17:54:22.509Z |            1.1.0 | url_concat: ability to manage string and array parameters
 2023-04-12T10:38:59.823Z |            1.2.0 | DateTime format: option to hide time portion of date
 2023-06-07T10:49:57.599Z |            1.3.0 | dateToMysql
+2023-07-24T07:36:51.439Z |            1.4.0 | geHiddenHeight
