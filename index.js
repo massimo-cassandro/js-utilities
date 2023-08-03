@@ -6,7 +6,7 @@ export { isValidDate, minutesToHour, dateFromISO, dateStringToISO, formatDate, f
 export { obfuscate_email, email_antispam } from './src/email-antispam.js';
 export { escapeHTML } from './src/escapeHTML.js';
 export { default as festivita } from './src/festivita.js';
-export { disableBtnsOnSubmit, throwErr, setFormElementValue, getFormElementValue } from './src/form-utilities.js';
+export { addBsValidation, disableBtnsOnSubmit, throwErr, setFormElementValue, getFormElementValue } from './src/form-utilities.js';
 export { default as genera_pwd } from './src/genera-pwd.js';
 export { inputDateRawFallback } from './src/input-date-raw-fallback.js';
 export { inputDateSupport, inputDatetimeSupport, inputTimeSupport } from './src/input-date-support.js';
