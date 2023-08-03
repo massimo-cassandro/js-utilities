@@ -1,5 +1,5 @@
 /*
-  import {showBsValidation, disableBtnsOnSubmit, throwErr} from '@massimo-cassandro/js-utilities';
+  import {bsValidation, disableBtnsOnSubmit, throwErr} from '@massimo-cassandro/js-utilities';
 */
 
 // disable buttons on submit
@@ -14,7 +14,7 @@ export function disableBtnsOnSubmit() {
 }
 
 // Aggiunge la classe di validazione BS
-export function addBsValidation() {
+export function bsValidation() {
   document.querySelectorAll('form [type=submit]').forEach( el => {
     el.addEventListener('click', () => {
       el.closest('form')?.classList.add('was-validated');
