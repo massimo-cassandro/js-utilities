@@ -1,4 +1,25 @@
 // import {overlay, remove_overlay} from '@massimo-cassandro/m-utilities/js-utilities/overlay';
+
+/*
+.page-overlay, .div-overlay {
+  inset: 0;
+  z-index: 9999
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $overlay-color;
+  background-color: $overlay-bg;
+
+}
+.page-overlay {
+  position: fixed;
+}
+
+.div-overlay {
+  position: absolute;
+}
+
+*/
 export  function overlay( container ) {
 
   container = container || document.body;
