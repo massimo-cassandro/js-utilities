@@ -7,8 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $overlay-color;
-  background-color: $overlay-bg;
+  color: #fff
+  background-color: rgb(0 0 0 / .7);
 
 }
 .page-overlay {
