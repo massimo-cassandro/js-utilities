@@ -67,17 +67,18 @@ export function better_text(str, custom_words = []) {
     // aggiunta spazio non divisibile dopo articoli, preposizioni ecc.
     // include anche alcune parole in altre lingue
 
-    // valori unici
-    particelle.sort();
-    var particelle_unique = particelle.filter( function (value, index, self) {
-      return self.indexOf(value) === index;
-    } );
-
-    var re = new RegExp('\\b(' + particelle_unique.join('|') + ')\\b +', 'gmi');
+    var re = new RegExp('\\b(' + particelle.join('|') + ')\\b +', 'gmi');
 
     str = str.replace(re, function (match) {
       return match.replace(/ +/g, ' ');
     });
+
+    particelle.forEach(term => {
+      const re = new RegExp('\\b(' + term + ')\\b', 'gmi');
+      str = str.replace(re, term);
+    });
+
+
     if(custom_words.length) {
       custom_words.forEach(item => {
         str = str.replace(new RegExp(`\\b${item}\\b`, 'gi'), item);
@@ -153,3 +154,14 @@ export function text_cleaner(str) {
     return '';
   }
 }
+
+
+export function nl2br(str) {
+
+  if(str) {
+
+    str = str.replace(/\n|\r\n|\r/gi, '<br/>');
+  }
+
+  return str;
+} // end nl2br
