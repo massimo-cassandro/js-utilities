@@ -1,7 +1,7 @@
 {
   "name": "@massimo-cassandro/js-utilities",
   "description": "My collection of js utilities",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "license": "MIT",
   "author": "Massimo Cassandro",
   "main": "index.js",
@@ -47,10 +47,11 @@
   "files": [
     "src/**/*.{scss,css,js,map}",
     "scss/**/*.{scss,css,js,map}",
+    "react-hooks/**/*.{scss,css,js,jsx,map}",
     "index.js"
   ],
   "devDependencies": {
-    "@massimo-cassandro/dev-utilities": "^1.18.1",
-    "@massimo-cassandro/linters-config": "^1.5.1"
+    "@massimo-cassandro/dev-utilities": "^1.19.0",
+    "@massimo-cassandro/linters-config": "^1.5.6"
   }
 }
