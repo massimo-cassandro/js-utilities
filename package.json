@@ -1,12 +1,12 @@
 {
   "name": "@massimo-cassandro/js-utilities",
   "description": "My collection of js utilities",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "license": "MIT",
   "author": "Massimo Cassandro",
   "main": "index.js",
   "scripts": {
-    "UPD-version": "npx update-version",
+    "UPD-version": "npx update-version --default-descr=fix",
     "npm publish": "npm publish",
     "upd@m": "npx upd@m",
     "local test server": "python3 -m http.server"

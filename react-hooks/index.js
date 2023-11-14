@@ -1,1 +1,1 @@
-export { default as useIsDesktopHook } from './src/useIsDesktopHook.jsx';
+export { useIsDesktop as useIsDesktopHook } from './src/useIsDesktopHook.jsx';
