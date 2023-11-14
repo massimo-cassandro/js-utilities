@@ -2,7 +2,7 @@
 export function getCookie(cookie_name, valRegexpString=null) {
   const regexp = new RegExp(`?:; ?|^)\b${cookie_name}` +
     (valRegexpString? `=${valRegexpString}` : '') +
-    '\b');
+    '\b;?');
   return document.cookie?.match(regexp)?? null;
 }
 
