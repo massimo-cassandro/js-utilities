@@ -10,3 +10,4 @@
 2023-10-31T10:02:32.971Z |            1.7.0 | nl2br
 2023-11-10T14:14:49.034Z |            1.7.1 | text-utilities fix
 2023-11-14T13:04:31.294Z |            1.8.0 | react hooks: useIsDesktopHook
+2023-11-14T13:38:38.120Z |            1.9.0 | cookies utility

@@ -28,3 +28,4 @@ export { dateToMysql } from './src/date-to-mysql.js';
 export { getHiddenHeight } from './src/getHiddenHeight.js';
 export { enable_submit_btns } from './src/enable-submit-btns.js';
 export { formMultiselect } from './src/form-multiselect.js';
+export { getCookie, setCookie } from './src/cookies.js';
