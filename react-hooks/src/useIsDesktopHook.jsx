@@ -3,17 +3,17 @@ import React from 'react';
 /**
  *
  * @param {number} desktopBreakpoint - larghezza del viewport in px a partire della quale viene considerato desktop
- * @param {boolean} force - Impostare a true per forzare l'esito sempre uguale a true
+ * @param {boolean} force - Impostare a true o false per forzare l'esito sempre uguale a true
  * @returns
  */
 
-export function useIsDesktop(desktopBreakpoint, force = false) {
+export function useIsDesktop(desktopBreakpoint, force = undefined) {
   const [isDesktop, updIsDesktop] = React.useState(false);
 
   React.useEffect(() => {
 
-    if(force) {
-      updIsDesktop(true);
+    if(force != null) {
+      updIsDesktop(force);
     } else {
       const mql = window.matchMedia(`(min-width: ${desktopBreakpoint}px)`),
         mqlChangeHandler = () => {
