@@ -2,7 +2,7 @@
 export { controllo_partita_iva } from './src/controllo-partita-iva-IT.js';
 export { controllo_codice_fiscale } from './src/controllo-codice-fiscale-IT.js';
 export { default as date_in_sequenza } from './src/date-in-sequenza.js';
-export { isValidDate, minutesToHour, dateFromISO, dateStringToISO, formatDate, formatTime, formatDateTime } from './src/date-utilities.js';
+export { isValidDate, minutesToHour, dateFromISO, dateStringToISO, dateToLocalISOString, formatDate, formatTime, formatDateTime } from './src/date-utilities.js';
 export { obfuscate_email, email_antispam } from './src/email-antispam.js';
 export { escapeHTML } from './src/escapeHTML.js';
 export { default as festivita } from './src/festivita.js';

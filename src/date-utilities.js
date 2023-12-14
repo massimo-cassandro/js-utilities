@@ -93,6 +93,13 @@ export function dateStringToISO(dateString = '', consider_time = false) {
   }
 }
 
+// restiusce una stringa iso localizzata secondo il timezone offset
+export function dateToLocalISOString(dateObj) {
+  return new Date(new Date(dateObj.getTime()) // clona la data
+    .setMinutes(dateObj.getMinutes() - dateObj.getTimezoneOffset()))
+    .toISOString()
+    .substring(0, 16);
+}
 
 export function formatDate(d = '', format_options = {
   year: 'numeric',
