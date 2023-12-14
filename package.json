@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "UPD-version": "npx update-version --default-descr=fix",
-    "npm publish": "npm publish",
+    "npm-publish": "npm publish",
     "upd@m": "npx upd@m",
     "local test server": "python3 -m http.server"
   },
