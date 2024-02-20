@@ -8,7 +8,7 @@
 
 import React from 'react';
 
-function useResizeObserver(elementRef) {
+export function useResizeObserver(elementRef) {
 
   const [DOMRect, setDOMRect] = React.useState(null),
     observerRef = React.useRef();
@@ -28,5 +28,3 @@ function useResizeObserver(elementRef) {
 
   return DOMRect;
 }
-
-export default useResizeObserver;
