@@ -1,7 +1,7 @@
 {
   "name": "@massimo-cassandro/js-utilities",
   "description": "My collection of js utilities",
-  "version": "1.10.0",
+  "version": "1.12.0",
   "license": "MIT",
   "author": "Massimo Cassandro",
   "main": "index.js",
@@ -48,6 +48,7 @@
     "src/**/*.{scss,css,js,map}",
     "scss/**/*.{scss,css,js,map}",
     "react-hooks/**/*.{scss,css,js,jsx,map}",
+    "boilerplate/**/*.{scss,css,js,jsx,map}",
     "index.js"
   ],
   "devDependencies": {
