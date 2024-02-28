@@ -3,18 +3,18 @@
 /**
  * Uses the ResizeObserver API to observe changes within the given HTML Element DOM Rect.
  * @param elementRef
- * @returns {undefined}
+ * @returns {object}
  */
 
-import React from 'react';
+import { useRef, useEffect, useState} from 'react';
 
 export function useResizeObserver(elementRef) {
 
-  const [DOMRect, setDOMRect] = React.useState(null),
-    observerRef = React.useRef();
+  const [DOMRect, setDOMRect] = useState(null),
+    observerRef = useRef();
 
   // init
-  React.useEffect(() => {
+  useEffect(() => {
     observerRef.current = new ResizeObserver( entries => {
       const { bottom, height, left, right, top, width } = entries[0].contentRect;
       setDOMRect({ bottom, height, left, right, top, width });
@@ -22,7 +22,7 @@ export function useResizeObserver(elementRef) {
   }, []);
 
   // observe
-  React.useEffect(() => {
+  useEffect(() => {
     observerRef.current.observe(elementRef.current);
   }, [elementRef]);
 

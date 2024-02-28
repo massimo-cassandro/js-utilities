@@ -1,16 +1,16 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
 /**
  *
  * @param {number} desktopBreakpoint - larghezza del viewport in px a partire della quale viene considerato desktop
  * @param {boolean} force - Impostare a true o false per forzare l'esito sempre uguale a true
- * @returns
+ * @returns {boolean}
  */
 
 export function useIsDesktop(desktopBreakpoint, force = undefined) {
-  const [isDesktop, updIsDesktop] = React.useState(false);
+  const [isDesktop, updIsDesktop] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
 
     if(force != null) {
       updIsDesktop(force);
