@@ -3,10 +3,12 @@ export default function (date, options = {}) {
   // date: data da elaborare (oggetto date o stringa iso)
   // options oggetto per la persopnalizzazione del risultato
 
+  // TODO: tra xx minuti, adesso,... con definizione del range
+
   const default_options = {
 
     // La prima parola della stringa ha l'iniziale maiuscola?
-    firstLetterUppercaseCase: false,
+    firstLetterUppercaseCase: true,
 
     // formato data non relativa (oltre 'dopodomani')
     dateFormat: {
