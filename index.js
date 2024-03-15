@@ -29,3 +29,8 @@ export { getHiddenHeight } from './src/getHiddenHeight.js';
 export { enable_submit_btns } from './src/enable-submit-btns.js';
 export { formMultiselect } from './src/form-multiselect.js';
 export { getCookie, setCookie } from './src/cookies.js';
+export { default as relativeNextDate} from './src/date-relative.js';
+
+//react hooks
+export { useIsDesktop } from './react-hooks/useIsDesktopHook.jsx';
+export { useResizeObserver } from './react-hooks/useResizeObserverHook.jsx';

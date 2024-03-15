@@ -1,7 +1,7 @@
 {
   "name": "@massimo-cassandro/js-utilities",
   "description": "My collection of js utilities",
-  "version": "1.12.3",
+  "version": "1.13.0",
   "license": "MIT",
   "author": "Massimo Cassandro",
   "main": "index.js",
@@ -52,7 +52,13 @@
     "index.js"
   ],
   "devDependencies": {
-    "@massimo-cassandro/dev-utilities": "^1.19.0",
-    "@massimo-cassandro/linters-config": "^1.5.6"
+    "@massimo-cassandro/dev-updater": "^1.0.0",
+    "@massimo-cassandro/eslint-config": "^1.1.0",
+    "@massimo-cassandro/stylelint-config": "^1.1.1",
+    "@stylistic/stylelint-plugin": "^2.1.0",
+    "eslint": "^8.57.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-css-modules": "^4.4.0",
+    "stylelint-config-twbs-bootstrap": "^14.0.0"
   }
 }
