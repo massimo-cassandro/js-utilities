@@ -6,6 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Date Relative test</title>
     <link rel="icon" href="data:;base64,=">
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .rif {
+        color: #666;
+        font-style: italic;
+        font-size: .85em;
+      }
+      time {
+        color: #c00;
+      }
+      .time-info {
+        font-style: italic;
+
+      }
+    </style>
   </head>
   <body>
     <h1>Date Utilities test</h1>
@@ -14,27 +31,47 @@
     <script type="module">
       import relativeNextDate from '../src/date-relative.js';
 
-      const oggi = new Date(new Date().setHours(14,30,0))
-        ,ieri = new Date(new Date(oggi).setDate(oggi.getDate() - 1))
-        ,domani = new Date(new Date(oggi).setDate(oggi.getDate() + 1))
-        ,dopodomani = new Date(new Date(oggi).setDate(oggi.getDate() + 2))
-        ,dueGiorniFa = new Date(new Date(oggi).setDate(oggi.getDate() - 2))
-        ,fraTreGiorni = new Date(new Date(oggi).setDate(oggi.getDate() + 3))
+      const oggi = new Date()
+        ,eventoOggi = new Date(new Date(oggi).setHours(oggi.getHours() + 4))
+        ,ieri = new Date(new Date(eventoOggi).setDate(eventoOggi.getDate() - 1))
+        ,domani = new Date(new Date(eventoOggi).setDate(eventoOggi.getDate() + 1))
+        ,dopodomani = new Date(new Date(eventoOggi).setDate(eventoOggi.getDate() + 2))
+        ,dueGiorniFa = new Date(new Date(eventoOggi).setDate(eventoOggi.getDate() - 2))
+        ,fraTreGiorni = new Date(new Date(eventoOggi).setDate(eventoOggi.getDate() + 3))
+        ,traDieciMinuti = new Date(new Date(oggi).setMinutes(oggi.getMinutes() + 10))
+        ,ventiMinutiFa = new Date(new Date(oggi).setMinutes(oggi.getMinutes() - 20))
+        ,ventottoMinutiFa = new Date(new Date(oggi).setMinutes(oggi.getMinutes() - 28))
       ;
 
-      const wrapper = document.getElementById('test');
+      const wrapper = document.getElementById('test')
+
+        ,formatDate = (d, brackets = true) => {
+          const str = d.toLocaleString('it-IT', {
+              year: '2-digit', // 'numeric',
+              month: 'short', // '2-digit',
+              day: 'numeric', // '2-digit',
+              hour12: false,
+              hour:'2-digit',
+              minute:'2-digit'
+            });
+
+          return '<span class="rif">' + (brackets? `(data evento: ${str})` : str) + '</span>';
+        }
+      ;
 
       wrapper.innerHTML = `
-        <p>${new Date()}</p>
-        <p><strong>Oggi</strong>: ${relativeNextDate(oggi)}</p>
-        <p><strong>Ieri</strong>: ${relativeNextDate(ieri)}</p>
-        <p><strong>Domani</strong>: ${relativeNextDate(domani)}</p>
-        <p><strong>Dopodomani</strong>: ${relativeNextDate(dopodomani)}</p>
-        <p><strong>Due giorni fa</strong>: ${relativeNextDate(dueGiorniFa)}</p>
-        <p><strong>Fra tre giorni</strong>: ${relativeNextDate(fraTreGiorni)}</p>
+        <p><span class="rif">Adesso:</span> ${formatDate(new Date(), false)}</p>
+        <p><strong>Oggi</strong>: ${relativeNextDate(eventoOggi)} ${formatDate(eventoOggi)}</p>
+        <p><strong>Ieri</strong>: ${relativeNextDate(ieri)} ${formatDate(ieri)}</p>
+        <p><strong>Domani</strong>: ${relativeNextDate(domani)} ${formatDate(domani)}</p>
+        <p><strong>Dopodomani</strong>: ${relativeNextDate(dopodomani)} ${formatDate(dopodomani)}</p>
+        <p><strong>Due giorni fa</strong>: ${relativeNextDate(dueGiorniFa)} ${formatDate(dueGiorniFa)}</p>
+        <p><strong>Fra tre giorni</strong>: ${relativeNextDate(fraTreGiorni)} ${formatDate(fraTreGiorni)}</p>
         <p>&nbsp</p>
-        <p><strong>Domani (minusc.)</strong>: ${relativeNextDate(domani, {firstLetterUppercaseCase: false})}</p>
-        <p><strong>Fra tre giorni (minusc.)</strong>: ${relativeNextDate(fraTreGiorni, {firstLetterUppercaseCase: false})}</p>
+        <p><strong>Adesso</strong>: ${relativeNextDate(oggi)} ${formatDate(oggi)}</p>
+        <p><strong>Inizia tra dieci minuti</strong>: ${relativeNextDate(traDieciMinuti)} ${formatDate(traDieciMinuti)}</p>
+        <p><strong>Iniziato venti minuti fa</strong>: ${relativeNextDate(ventiMinutiFa)} ${formatDate(ventiMinutiFa)}</p>
+        <p><strong>Iniziato 28 minuti fa</strong>: ${relativeNextDate(ventottoMinutiFa)} ${formatDate(ventottoMinutiFa)}</p>
       `;
 
     </script>
