@@ -88,7 +88,18 @@ export default function (date, options = {}) {
       (minutesDiff > 0 && minutesDiff <= opts.relativeTimeMinutesBefore)
     )) {
 
-      const parts = rtf.formatToParts( minutesDiff, 'minute'); // necessario per evitare decimali nel valore
+      // utilizzo di formatToParts e reduce necessario per eliminare porzioni decimali nel valore
+      let parts = rtf.formatToParts( minutesDiff, 'minute').reduce((result, curr) => {
+        if(curr.type !== 'decimal') { // separatore
+
+          if(curr.type === 'fraction') { // parte decimale
+            result.find(i => i.type === 'integer').value += `.${curr.value}`;
+          } else {
+            result.push(curr);
+          }
+        }
+        return result;
+      }, []);
 
       result = parts.map(i => i.type !== 'literal'? Math.round(+i.value) : i.value ).join('')+
         (opts.relativeTimeShowTime? opts.relativeTimeShowTimeMarkup?.replace('@@time@@', d.toLocaleString(opts.locale, opts.timeFormat)) : '');
