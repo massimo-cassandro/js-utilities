@@ -71,9 +71,11 @@ export default function (date, options = {}) {
     const d = typeof date === 'string'? new Date(date) : date
       ,now = new Date()
       ,minutesDiff = (d.getTime() - now.getTime())/60000 // differenza tra le due date in minuti
-      ,minutesPerDay = 1440
-      ,daysDiff = Math.floor(minutesDiff/minutesPerDay)// differenza tra le due date in giorni
+      ,daysDiff = (new Date(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0) -
+        new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0))/86400000
       ,rtf = new Intl.RelativeTimeFormat('it', { style: 'long' })
+
+
     ;
 
     let result;

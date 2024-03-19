@@ -32,7 +32,8 @@
       import relativeNextDate from '../src/date-relative.js';
 
       const oggi = new Date()
-        ,eventoOggi = new Date(new Date(oggi).setHours(oggi.getHours() + 4))
+        ,eventoOggi = new Date(new Date(oggi).setMinutes(oggi.getMinutes() + 40))
+        ,eventoOggi2 = new Date(new Date(oggi).setHours(oggi.getHours() + 3))
         ,ieri = new Date(new Date(eventoOggi).setDate(eventoOggi.getDate() - 1))
         ,domani = new Date(new Date(eventoOggi).setDate(eventoOggi.getDate() + 1))
         ,dopodomani = new Date(new Date(eventoOggi).setDate(eventoOggi.getDate() + 2))
@@ -61,17 +62,18 @@
 
       wrapper.innerHTML = `
         <p><span class="rif">Adesso:</span> ${formatDate(new Date(), false)}</p>
-        <p><strong>Oggi</strong>: ${relativeNextDate(eventoOggi)} ${formatDate(eventoOggi)}</p>
-        <p><strong>Ieri</strong>: ${relativeNextDate(ieri)} ${formatDate(ieri)}</p>
-        <p><strong>Domani</strong>: ${relativeNextDate(domani)} ${formatDate(domani)}</p>
-        <p><strong>Dopodomani</strong>: ${relativeNextDate(dopodomani)} ${formatDate(dopodomani)}</p>
-        <p><strong>Due giorni fa</strong>: ${relativeNextDate(dueGiorniFa)} ${formatDate(dueGiorniFa)}</p>
-        <p><strong>Fra tre giorni</strong>: ${relativeNextDate(fraTreGiorni)} ${formatDate(fraTreGiorni)}</p>
+        <p>${relativeNextDate(eventoOggi)} ${formatDate(eventoOggi)}</p>
+        <p>${relativeNextDate(eventoOggi2)} ${formatDate(eventoOggi2)}</p>
+        <p>${relativeNextDate(ieri)} ${formatDate(ieri)}</p>
+        <p>${relativeNextDate(domani)} ${formatDate(domani)}</p>
+        <p>${relativeNextDate(dopodomani)} ${formatDate(dopodomani)}</p>
+        <p>${relativeNextDate(dueGiorniFa)} ${formatDate(dueGiorniFa)}</p>
+        <p>${relativeNextDate(fraTreGiorni)} ${formatDate(fraTreGiorni)}</p>
         <p>&nbsp</p>
-        <p><strong>Adesso</strong>: ${relativeNextDate(oggi)} ${formatDate(oggi)}</p>
-        <p><strong>Inizia tra dieci minuti</strong>: ${relativeNextDate(traDieciMinuti)} ${formatDate(traDieciMinuti)}</p>
-        <p><strong>Iniziato venti minuti fa</strong>: ${relativeNextDate(ventiMinutiFa)} ${formatDate(ventiMinutiFa)}</p>
-        <p><strong>Iniziato 28 minuti fa</strong>: ${relativeNextDate(ventottoMinutiFa)} ${formatDate(ventottoMinutiFa)}</p>
+        <p>${relativeNextDate(oggi)} ${formatDate(oggi)}</p>
+        <p>${relativeNextDate(traDieciMinuti)} ${formatDate(traDieciMinuti)}</p>
+        <p>${relativeNextDate(ventiMinutiFa)} ${formatDate(ventiMinutiFa)}</p>
+        <p>${relativeNextDate(ventottoMinutiFa)} ${formatDate(ventottoMinutiFa)}</p>
       `;
 
     </script>
