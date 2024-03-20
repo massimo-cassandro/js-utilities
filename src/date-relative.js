@@ -112,6 +112,7 @@ export default function (date, options = {}) {
     } else if(daysDiff >= -1 && daysDiff <= 2) {
 
       result = opts.relativeStrings[daysDiff+1] + ' ' + d.toLocaleString(opts.locale, opts.timeFormat);
+      isRelative = daysDiff === 0;
 
     } else {
       result = d.toLocaleString(opts.locale, opts.dateFormat);
