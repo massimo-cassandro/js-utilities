@@ -1,8 +1,7 @@
-// forked from https://github.com/antonioru/beautiful-react-hooks/blob/master/src/useResizeObserver.ts
-
 /**
  * Uses the ResizeObserver API to observe changes within the given HTML Element DOM Rect.
  * @param elementRef
+ * @author Massimo Cassandro (forked from https://github.com/antonioru/beautiful-react-hooks/blob/master/src/useResizeObserver.ts)
  * @returns {object}
  */
 

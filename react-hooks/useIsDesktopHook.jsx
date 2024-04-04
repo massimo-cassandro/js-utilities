@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 
 /**
  *
- * @param {number} desktopBreakpoint - larghezza del viewport in px a partire della quale viene considerato desktop
+ * @param {number} desktopBreakpoint - larghezza del viewport (se numero, si intende in px) a partire della quale viene considerato desktop
  * @param {boolean} force - Impostare a true o false per forzare l'esito sempre uguale a true
+ * @author Massimo Cassandro
  * @returns {boolean}
  */
 
@@ -15,7 +16,7 @@ export function useIsDesktop(desktopBreakpoint, force = undefined) {
     if(force != null) {
       updIsDesktop(force);
     } else {
-      const mql = window.matchMedia(`(min-width: ${desktopBreakpoint}px)`),
+      const mql = window.matchMedia(`(min-width: ${typeof desktopBreakpoint === 'number'? `${desktopBreakpoint}px` : desktopBreakpoint})`),
         mqlChangeHandler = () => {
           updIsDesktop(mql.matches);
         };
@@ -24,7 +25,7 @@ export function useIsDesktop(desktopBreakpoint, force = undefined) {
       mqlChangeHandler();
     }
 
-  }, []);
+  }, [desktopBreakpoint, force]);
 
   return isDesktop;
 }

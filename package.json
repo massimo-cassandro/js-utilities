@@ -48,7 +48,6 @@
     "src/**/*.{scss,css,js,map}",
     "scss/**/*.{scss,css,js,map}",
     "react-hooks/**/*.{scss,css,js,jsx,map}",
-    "boilerplate/**/*.{scss,css,js,jsx,map}",
     "index.js"
   ],
   "devDependencies": {
