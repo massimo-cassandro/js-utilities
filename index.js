@@ -4,7 +4,7 @@ export { controllo_codice_fiscale } from './src/controllo-codice-fiscale-IT.js';
 export { default as date_in_sequenza } from './src/date-in-sequenza.js';
 export { isValidDate, minutesToHour, dateFromISO, dateStringToISO, dateToLocalISOString, formatDate, formatTime, formatDateTime } from './src/date-utilities.js';
 export { obfuscate_email, email_antispam } from './src/email-antispam.js';
-export { escapeHTML } from './src/escapeHTML.js';
+export { escapeHTML, unescapeHTML } from './src/escapeHTML.js';
 export { default as festivita } from './src/festivita.js';
 export { bsValidation, disableBtnsOnSubmit, throwErr, setFormElementValue, getFormElementValue } from './src/form-utilities.js';
 export { default as genera_pwd } from './src/genera-pwd.js';
