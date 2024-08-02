@@ -93,7 +93,8 @@ export function dateStringToISO(dateString = '', consider_time = false) {
   }
 }
 
-// restiusce una stringa iso localizzata secondo il timezone offset
+// restituisce una stringa iso localizzata secondo il timezone offset
+// adatta ad essere usata come value di un input datetime-local
 export function dateToLocalISOString(dateObj) {
   return new Date(new Date(dateObj.getTime()) // clona la data
     .setMinutes(dateObj.getMinutes() - dateObj.getTimezoneOffset()))
