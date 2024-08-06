@@ -95,13 +95,11 @@ export function title_case(str) {
 
   if(str) {
 
-    str = str.replace(/\b(.)\B(.*?)\b/gi, (match, p1, p2) => {
-      return p1.toUpperCase() + p2.toLowerCase();
-    });
-    // non necessaria
-    /* .replace(/(?<=')(.)/g, (match, p1) => { //caratteri preceduti da virgolette singole
-      return p1.toUpperCase();
-    }); */
+    let parole = str.toLowerCase().split(' ');
+    for (let i = 0; i < parole.length; i++) {
+      parole[i] = parole[i].charAt(0).toUpperCase() + parole[i].slice(1);
+    }
+    str = parole.join(' ');
   }
 
   return str;
