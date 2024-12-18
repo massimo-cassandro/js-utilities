@@ -27,7 +27,7 @@ export function datesFromTo(dateIsoString1, dateIsoString2, options={}) {
 
     } else if (m1 !== m2) {
 
-      options.locale_options.year = undefined;
+      delete options.locale_options.year;
 
       return new Date(dateIsoString1).toLocaleString(options.locale, options.locale_options) +
         ' &ndash; ' +
@@ -36,7 +36,7 @@ export function datesFromTo(dateIsoString1, dateIsoString2, options={}) {
 
     } else {
 
-      options.locale_options.day = undefined;
+      delete options.locale_options.day;
 
       return `${d1}&ndash;${d2} ` + new Date(dateIsoString1).toLocaleString(options.locale, options.locale_options);
     }
