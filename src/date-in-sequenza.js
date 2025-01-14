@@ -8,7 +8,7 @@ export default function (context = document) {
     Sulla data iniziale → data-max
     Sulla data finale   → data-min
 
-    Se uno dei deu campi viene disabilitato, i vincoli vengono rimossi
+    Se uno dei due campi viene disabilitato, i vincoli vengono rimossi
   */
 
   // TODO riscrivere DRY
