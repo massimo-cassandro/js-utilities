@@ -26,7 +26,7 @@ export { default as url_concat } from './src/url-concat.js';
 export { webpSupport } from './src/webp-support.js';
 export { dateToMysql } from './src/date-to-mysql.js';
 export { getHiddenHeight } from './src/getHiddenHeight.js';
-export { enable_submit_btns } from './src/enable-submit-btns.js';
+export { enable_submit_btns as enableSubmitBtns } from './src/enable-submit-btns.js';
 export { formMultiselect } from './src/form-multiselect.js';
 export { getCookie, setCookie } from './src/cookies.js';
 export { default as relativeNextDate} from './src/date-relative.js';
