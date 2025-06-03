@@ -28,8 +28,9 @@ export function throwErr(field, mes) {
 
   if(field) {
     field.classList.add('is-invalid');
-    let form_group = field.closest('.form-group'),
-      label = form_group.querySelector('label');
+    const form_group = field.closest('.form-group'),
+      label = form_group?.querySelector('label')?? null;
+
     if(form_group && label ) {
       form_group.classList.add('is-invalid');
       label.focus({preventScroll:false});
@@ -38,6 +39,7 @@ export function throwErr(field, mes) {
       field.focus({preventScroll:false});
     }
   }
+
 
   throw mes;
 }
