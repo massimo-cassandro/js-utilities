@@ -34,3 +34,4 @@ export { datesFromTo } from './src/dates-from-to.js';
 export { arrayToCsv } from './src/array-to-csv.js';
 export { domBuilder } from './src/dom-builder.js';
 export { classnames } from './src/classnames.js';
+export { parseText } from './parse-text.js';
