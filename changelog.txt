@@ -44,3 +44,4 @@
 2025-07-28T10:57:23.083Z |           1.17.0 | classnames & domBuilder
 2025-07-28T12:27:09.065Z |           1.18.0 | parseText
 2025-07-28T12:36:33.104Z |           1.18.1 | fix
+2025-07-30T13:39:42.317Z |           1.19.0 | domBuilder: support for dom elements as content values

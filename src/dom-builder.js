@@ -81,15 +81,22 @@ export function domBuilder(structureArray = [], parent) {
       });
 
       if(item.content) {
-        let content;
 
-        if(typeof item.content === 'function')  {
-          content = item.content();
+        if(item.content instanceof HTMLElement) {
+
+          el.appendChild(item.content);
+
         } else {
-          content = String(item.content);
+          let content;
+          if(typeof item.content === 'function')  {
+            content = item.content();
+          } else {
+            content = String(item.content);
 
+          }
+          el.innerHTML = content;
         }
-        el.innerHTML = content;
+
       }
 
 
