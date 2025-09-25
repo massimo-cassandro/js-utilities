@@ -83,9 +83,17 @@ export function slideDown(target, duration=500, callback = null) {
   target.style.display = display;
   let height = target.offsetHeight;
 
-  propertiesSetup(target, duration);
-
+  // propertiesSetup(target, duration);
+  target.style.overflow = 'hidden';
+  target.style.height = 0;
+  target.style.paddingTop = 0;
+  target.style.paddingBottom = 0;
+  target.style.marginTop = 0;
+  target.style.marginBottom = 0;
   target.offsetHeight;
+  target.style.boxSizing = 'border-box';
+  target.style.transitionProperty = "height, margin, padding";
+  target.style.transitionDuration = duration + 'ms';
   target.style.height = height + 'px';
   target.style.removeProperty('padding-top');
   target.style.removeProperty('padding-bottom');
@@ -93,7 +101,11 @@ export function slideDown(target, duration=500, callback = null) {
   target.style.removeProperty('margin-bottom');
 
   window.setTimeout( () => {
-    propertiesReset(target);
+    // propertiesReset(target);
+    target.style.removeProperty('height');
+    target.style.removeProperty('overflow');
+    target.style.removeProperty('transition-duration');
+    target.style.removeProperty('transition-property');
 
     if(callback && typeof callback === 'function') {
       callback();
@@ -114,3 +126,4 @@ export function slideToggle(target, duration = 500, callback=null) {
 
   return is_expanded;
 }
+
