@@ -3,7 +3,10 @@ crea una struttura dom a partire da un array di questo tipo:
 
 structure = [
   {
-    tag: 'div', // default `div`, può essere omesso
+    // default `div`, può essere omesso, può essere un array di elementi nidificati
+    // in questo caso gli altri elementi dell'oggetto in esame si applicano solo all'ultimo
+    // elemento dell'array `tag`
+    tag: 'div', | ['table', 'thead', 'tr']
     className: xxx,
     attrs: [  // attributi
       [attr_name, attr_value],
@@ -25,37 +28,35 @@ oppure {attr_name: attr_value, ...}
 
 */
 export function domBuilder(structureArray = [], parent) {
-  let mainElement = null;
+  let mainElement = null, el, grand_parent = null;
+
   structureArray.forEach(item => {
     if(item.condition ?? true) {
 
 
-      // TODO completare
-      // // se tag è un array, vengono creati una serie di elementi nidificati e si utilizza l'ultimo
-      // if(!Array.isArray(item.tag)) {
-      //   item.tag = [item.tag];
-      // }
-      // const el = item.tag.reduce((resultEl, tag, idx) => {
-      //   const thisEl = document.createElement(tag ?? 'div');
+      // se tag è un array, vengono creati una serie di elementi nidificati e si utilizza l'ultimo
+      if(Array.isArray(item.tag)) {
 
-      //   if(resultEl != null) {
-      //     resultEl.appendChild(thisEl);
-      //     parent = resultEl;
-      //   } else {
-      //     resultEl = thisEl;
-      //   }
+        grand_parent = parent;
 
-      //   if(idx < item.tag.length -1) {
-      //     resultEl.appendChild(thisEl);
+        item.tag.forEach((tag, idx) => {
+          const isLast = idx === item.tag.length - 1;
 
-      //   }
+          el = document.createElement(tag);
 
-      //   return resultEl;
-      // }, null);
+          if(!isLast) { // l'ultimo elemento è gestito dalla procedura "standard"
+            if(parent) {
+              parent.appendChild(el);
+            }
+            parent = el;
+          }
 
-      // console.log(el);;
+        });
 
-      const el = document.createElement(item.tag ?? 'div');
+      } else {
+        el = document.createElement(item.tag ?? 'div');
+      }
+
 
       if(item.className) {
         el.className = item.className;
@@ -64,13 +65,12 @@ export function domBuilder(structureArray = [], parent) {
         el.id = item.id;
       }
 
-      // se item.attrs è un array singolo viene trattato cpome singolo elemento
+      // se item.attrs è un array singolo viene trattato come singolo elemento
       if(item.attrs && Array.isArray(item.attrs) && !Array.isArray(item.attrs[0])) {
         item.attrs = [item.attrs];
-      }
 
-      //item.sttrs può essere un oggetto del tipo {attr_name: attr_value}
-      if(typeof item.attrs === 'object' && !Array.isArray(item.attrs) && item.attrs !== null) {
+      //item.attrs può essere un oggetto del tipo {attr_name: attr_value}
+      } else if(typeof item.attrs === 'object' && !Array.isArray(item.attrs) && item.attrs !== null) {
         item.attrs = Object.entries(item.attrs);
       }
 
@@ -82,21 +82,20 @@ export function domBuilder(structureArray = [], parent) {
 
       if(item.content) {
 
-        if(item.content instanceof HTMLElement) {
+        let content = '';
+        if(typeof item.content === 'function')  {
+          content = item.content();
 
-          el.appendChild(item.content);
-
-        } else {
-          let content;
-          if(typeof item.content === 'function')  {
-            content = item.content();
-          } else {
-            content = String(item.content);
-
-          }
-          el.innerHTML = content;
+        } else if(item.content != null) {
+          content = String(item.content);
         }
 
+        if(content instanceof HTMLElement) {
+          el.appendChild(content);
+
+        } else {
+          el.innerHTML = content;
+        }
       }
 
 
@@ -114,6 +113,10 @@ export function domBuilder(structureArray = [], parent) {
 
       if(parent) {
         parent.appendChild(el);
+      }
+
+      if(grand_parent) {
+        parent = grand_parent;
       }
     }
 

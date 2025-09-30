@@ -46,3 +46,4 @@
 2025-07-28T12:36:33.104Z |           1.18.1 | fix
 2025-07-30T13:39:42.317Z |           1.19.0 | domBuilder: support for dom elements as content values
 2025-09-25T08:42:53.002Z |           1.19.1 | fix
+2025-09-30T07:42:47.470Z |           1.20.0 | DomBuilder: tags array

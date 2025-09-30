@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Dom-builder test</title>
+    <link rel="icon" href="data:;base64,=">
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      table {
+        border: 1px #666;
+        border-style: solid none none solid;
+        border-collapse: collapse;
+      }
+      th, td {
+        border: 1px #666;
+        border-style: none solid solid none;
+        padding: .5rem;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Dom builder test</h1>
+    <div id="test"></div>
+
+    <script type="module">
+      import { domBuilder } from '../src/dom-builder.js';
+      domBuilder([
+        {
+          tag: 'table',
+          children: [
+            {
+              tag: ['thead', 'tr'],
+              children: ['col1', 'col2', 'col3', 'col4'].map(item => ({
+                tag: 'th',
+                content: item,
+                attrs: {scope: 'col'}
+              }))
+            },
+            {
+              tag: ['tbody', 'tr'],
+              children: [1,2,3,4].map(item => ({tag: 'td', content: item}))
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: 'Table'
+        }
+      ], document.getElementById('test'))
+    </script>
+  </body>
+</html>
