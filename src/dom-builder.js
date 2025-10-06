@@ -103,6 +103,10 @@ export function domBuilder(structureArray = [], parent) {
         item.callback(el);
       }
 
+      if(item.children != null && !Array.isArray(item.children)) {
+        console.error('Error: `item.children` must be an array');
+        console.error(item.children)
+      }
       if(item.children && Array.isArray(item.children)) {
         domBuilder(item.children, el);
       }
