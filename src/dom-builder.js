@@ -6,7 +6,7 @@ structure = [
     // default `div`, può essere omesso, può essere un array di elementi nidificati
     // in questo caso gli altri elementi dell'oggetto in esame si applicano solo all'ultimo
     // elemento dell'array `tag`
-    tag: 'div', | ['table', 'thead', 'tr']
+    tag: 'div', | ['.divClass', 'table.class1', 'thead', 'tr.class2.class3']
     className: xxx,
     attrs: [  // attributi
       [attr_name, attr_value],
@@ -35,6 +35,8 @@ export function domBuilder(structureArray = [], parent) {
 
 
       // se tag è un array, vengono creati una serie di elementi nidificati e si utilizza l'ultimo
+      // vengono anche applicate eventuali classi indicate dopo il nome del tag e separate dal punto
+      // se il tag non è presente, si intende come `div`
       if(Array.isArray(item.tag)) {
 
         grand_parent = parent;
@@ -42,7 +44,11 @@ export function domBuilder(structureArray = [], parent) {
         item.tag.forEach((tag, idx) => {
           const isLast = idx === item.tag.length - 1;
 
-          el = document.createElement(tag);
+          const [tagName, ...classes] = tag.split('.');
+          el = document.createElement(tagName || 'div');
+          if(classes.length) {
+            el.classList.add(...classes);
+          }
 
           if(!isLast) { // l'ultimo elemento è gestito dalla procedura "standard"
             if(parent) {

@@ -48,3 +48,4 @@
 2025-09-25T08:42:53.002Z |           1.19.1 | fix
 2025-09-30T07:42:47.470Z |           1.20.0 | DomBuilder: tags array
 2025-10-06T16:07:04.467Z |           1.20.1 | Error message on incorrect domBuilder children element
+2025-10-14T12:54:49.595Z |           1.21.0 | DomBuilder: tag as array with classnames
