@@ -32,7 +32,14 @@ oppure {attr_name: attr_value, ...}
 // ad esempio: 'input.search-input(type="search" class="search-input" placeholder="Cerca..." autofocus) content'
 // anche con children: `xxx\nyyy\n...` ?????
 
-export function domBuilder(structureArray = [], parent) {
+export function domBuilder(structureArray = [], parent, options = {}) {
+
+  options = {
+    replaceParentChildren: true,
+
+    ...options
+  };
+
   let mainElement = null, el, grand_parent = null;
 
   structureArray.forEach(item => {
@@ -127,7 +134,12 @@ export function domBuilder(structureArray = [], parent) {
       }
 
       if(parent) {
-        parent.appendChild(el);
+        if(options.replaceParentChildren) {
+          parent.replaceChildren(el);
+
+        } else {
+          parent.appendChild(el);
+        }
       }
 
       if(grand_parent) {
