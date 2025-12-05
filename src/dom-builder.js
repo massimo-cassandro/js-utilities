@@ -27,6 +27,11 @@ attrs può essere anche nella forma `[attr_name, attr_value]` (un solo attributo
 oppure {attr_name: attr_value, ...}
 
 */
+
+// TODO impmentare sintassi stringa simile a pug per gli elementi children
+// ad esempio: 'input.search-input(type="search" class="search-input" placeholder="Cerca..." autofocus) content'
+// anche con children: `xxx\nyyy\n...` ?????
+
 export function domBuilder(structureArray = [], parent) {
   let mainElement = null, el, grand_parent = null;
 
@@ -110,8 +115,8 @@ export function domBuilder(structureArray = [], parent) {
       }
 
       if(item.children != null && !Array.isArray(item.children)) {
-        console.error('Error: `item.children` must be an array');
-        console.error(item.children)
+        // eslint-disable-next-line no-console
+        console.error('Error: `item.children` must be an array → ' + item.children);
       }
       if(item.children && Array.isArray(item.children)) {
         domBuilder(item.children, el);
