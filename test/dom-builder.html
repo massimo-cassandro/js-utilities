@@ -20,6 +20,11 @@
         border-style: none solid solid none;
         padding: .5rem;
       }
+      #test div {
+        margin: 1rem 0;
+        padding: 1rem;
+        border: 1px solid #999;
+      }
 
     </style>
   </head>
@@ -30,6 +35,12 @@
     <script type="module">
       import { domBuilder } from '../src/dom-builder.js';
       domBuilder([
+        {
+          tag: 'p',
+          content: 'domBuilder'
+        },
+        'p#test-id.test-class1.test-class2(data-xxx=ok, data-yyy: ok2) Lorem ipsum',
+        '.test-class3 dolor sit amet',
         {
           tag: 'table',
           children: [
@@ -42,15 +53,11 @@
               }))
             },
             {
-              tag: ['tbody', 'tr'],
+              tag: ['tbody', 'tr.tr-class'],
               children: [1,2,3,4].map(item => ({tag: 'td', content: item}))
             },
           ]
         },
-        {
-          tag: 'p',
-          content: 'Table'
-        }
       ], document.getElementById('test'))
     </script>
   </body>
