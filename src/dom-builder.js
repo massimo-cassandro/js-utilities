@@ -29,10 +29,26 @@
  */
 
 function parseDomString(domString) {
-  const regex = /^([a-zA-Z]+)?(?:#([a-zA-Z0-9_-]+))?((?:\.[a-zA-Z0-9_-]+)*)?([([{].*?[)\]}])?(?: +(.*))?$/;
-  //             |  tag       |      id             |   classi              |  attrs         | content
+
+  // versione con groups
+  // const regex = new RegExp(
+  //   /^(?<tag>[a-zA-Z]+)?/.source +                // tag
+  //   /(?:#(?<id>[a-zA-Z0-9_-]+))?/.source +        // id
+  //   /(?<classes>(?:\.[a-zA-Z0-9_-]+)*)?/.source + // classi
+  //   /(?<attrs>[([{].*?[)\]}])?/.source +          // attrs
+  //   /(?: +(?<content>.*))?$/.source               // content
+  // );
+
+  const regex = new RegExp(
+    /^([a-zA-Z]+)?/.source +            // tag
+    /(?:#([a-zA-Z0-9_-]+))?/.source +   // id
+    /((?:\.[a-zA-Z0-9_-]+)*)?/.source + // classi
+    /([([{].*?[)\]}])?/.source +        // attrs
+    /(?: +(.*))?$/.source               // content
+  );
 
   const matches = domString.match(regex);
+
 
   if (!matches) {
     return null;
@@ -53,6 +69,13 @@ function parseDomString(domString) {
     content =  matches[5]?.trim() || null
   ;
 
+  // versione con uso di `groups`
+  // const tag = (matches.groups.tag || 'div').toLowerCase(),
+  //   id = matches.groups.id?.trim() || null,
+  //   classes = matches.groups.classes? matches[3].slice(1).split('.').map(c => c.trim()) : [],
+  //   rawAttrs = matches.groups.attrs?.trim() || null,
+  //   content =  matches.groups.content?.trim() || null
+  // ;
 
   const attrs = {};
   if (rawAttrs) {
