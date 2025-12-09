@@ -105,7 +105,7 @@ function parseDomString(domString) {
     attrs: attrs,
     content: content
   };
-}
+} // end parseDomString
 
 
 /**
@@ -145,7 +145,8 @@ function domBuilderBasicSetup (element, domBuilderItem) {
   });
 
   return element;
-}
+
+} // end domBuilderBasicSetup
 
 
 // TODO sintassi stringa su più righe in cui ogni riga corrisponde ad un elemento
@@ -175,10 +176,10 @@ function domBuilderBasicSetup (element, domBuilderItem) {
  *     callback: el => ...,
  *     children: [...]
  *   },
- *   `div.class[data-xxx: value]
- *    .another-div
- *    p#paragraph
- *    ...`,
+ *   'div.class[data-xxx: value]',
+ *   '.another-div',
+ *   'p#paragraph''
+ *   '...',
  *   { ... }
  * ]
  * ```
@@ -252,10 +253,14 @@ export function domBuilder(structureArray = [], parent, options = {}) {
           const isLast = idx === item.tag.length - 1;
           const parsedItem = parseDomString(tagItem);
 
+          // nel caso dell'ultimo elemento, merge con le opzioni dell'oggetto
+          // con precedenza alle proprietà di quest'ultimo
+          if(isLast) {
+            item.attrs = {...parsedItem.attrs??{}, ...item.attrs??{}};
+          }
           el = domBuilderBasicSetup(
             document.createElement(parsedItem.tag || 'div'),
-            // nel caso dell'ultimo elemento, dà la precedenza alle proprietà dell'oggetto
-            {...parsedItem, ...(isLast? item : {})}
+            {...parsedItem, ...(isLast? item??{} : {})}
           );
 
           if (!isLast) { // l'ultimo elemento è gestito dalla procedura "standard"
@@ -273,6 +278,7 @@ export function domBuilder(structureArray = [], parent, options = {}) {
           item
         );
       }
+
 
       if (item.content) {
 
