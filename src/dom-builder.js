@@ -114,26 +114,17 @@ function parseDomString(domString) {
 function domBuilderBasicSetup (element, domBuilderItem) {
 
   // classi
-  // possibili denominazionei: class o className
+  // possibili denominazioni: class o className
   // se presente className, class viene ignorato
   if (domBuilderItem.class && !domBuilderItem.className) {
     domBuilderItem.className = domBuilderItem.class;
-  }
-
-  if (domBuilderItem.className) {
-    element.className = domBuilderItem.className.trim();
-  }
-
-
-  if (domBuilderItem.id) {
-    element.id = domBuilderItem.id;
   }
 
   // se item.attrs è un array singolo viene trattato come singolo elemento
   if (domBuilderItem.attrs && Array.isArray(domBuilderItem.attrs) && !Array.isArray(domBuilderItem.attrs[0])) {
     domBuilderItem.attrs = [ domBuilderItem.attrs ];
 
-    //item.attrs può essere un oggetto del tipo {attr_name: attr_value}
+  // item.attrs può essere un oggetto del tipo {attr_name: attr_value}
   } else if (typeof domBuilderItem.attrs === 'object' && !Array.isArray(domBuilderItem.attrs) && domBuilderItem.attrs !== null) {
     domBuilderItem.attrs = Object.entries(domBuilderItem.attrs);
   }
@@ -143,6 +134,14 @@ function domBuilderBasicSetup (element, domBuilderItem) {
       element.setAttribute(attr[0], String(attr[1]));
     }
   });
+
+  // assegnazioen classi e id (dopo attrs in modo che le proprietà a livello di oggetto prevalgano)
+  if(domBuilderItem.className) {
+    element.className = domBuilderItem.className;
+  }
+  if(domBuilderItem.id) {
+    element.id = domBuilderItem.id;
+  }
 
   return element;
 

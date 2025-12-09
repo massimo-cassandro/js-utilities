@@ -53,3 +53,4 @@
 2025-12-05T17:01:34.224Z |           1.23.0 | domBuilder: replaceParentChildren option
 2025-12-07T17:47:17.765Z |           1.24.0 | domBuilder Upd
 2025-12-09T08:37:39.795Z |           1.24.1 | fix
+2025-12-09T09:25:29.014Z |           1.24.2 | fix
