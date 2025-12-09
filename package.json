@@ -1,7 +1,7 @@
 {
   "name": "@massimo-cassandro/js-utilities",
   "description": "My collection of js utilities",
-  "version": "1.24.2",
+  "version": "1.24.3",
   "license": "MIT",
   "author": "Massimo Cassandro",
   "main": "index.js",

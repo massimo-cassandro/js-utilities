@@ -298,10 +298,6 @@ export function domBuilder(structureArray = [], parent, options = {}) {
       }
 
 
-      if (item.callback && typeof item.callback === 'function') {
-        item.callback(el);
-      }
-
       if (item.children != null && !Array.isArray(item.children)) {
         // eslint-disable-next-line no-console
         console.error('Error: `item.children` must be an array → ' + item.children);
@@ -316,6 +312,11 @@ export function domBuilder(structureArray = [], parent, options = {}) {
 
       if (parent) {
         parent.appendChild(el);
+      }
+
+      // TODO callback che includano azioni relatuvi ai children dell'elemento potrebbero bìnon essere eseguiti in assenza di parent
+      if (item.callback && typeof item.callback === 'function') {
+        item.callback(el);
       }
 
       if (grand_parent) {
