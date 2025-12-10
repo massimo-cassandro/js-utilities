@@ -303,7 +303,7 @@ export function domBuilder(structureArray = [], parent, options = {}) {
         console.error('Error: `item.children` must be an array → ' + item.children);
       }
       if (item.children && Array.isArray(item.children)) {
-        domBuilder(item.children, el);
+        domBuilder(item.children, el, {emptyParent: false});
       }
 
       if (mainElement == null) {
