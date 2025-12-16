@@ -32,7 +32,6 @@ export { getCookie, setCookie } from './src/cookies.js';
 export { default as relativeNextDate} from './src/date-relative.js';
 export { datesFromTo } from './src/dates-from-to.js';
 export { arrayToCsv } from './src/array-to-csv.js';
-export { domBuilder } from './src/dom-builder.js';
 export { classnames } from './src/classnames.js';
 export { parseText } from './src/parse-text.js';
 export { stripTags, createId } from './src/create-id.js';

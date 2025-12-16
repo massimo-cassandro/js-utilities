@@ -56,3 +56,4 @@
 2025-12-09T09:25:29.014Z |           1.24.2 | fix
 2025-12-09T11:42:14.878Z |           1.24.3 | domBuilder fix
 2025-12-10T14:32:36.681Z |           1.24.4 | domBuilder fix
+2025-12-16T17:06:47.775Z |            2.0.0 | domBuilder moved to new repo
